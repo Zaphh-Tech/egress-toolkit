@@ -1,0 +1,82 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="ui.css">
+<title>Hunt Containers — Settings</title>
+<div class="wrap page">
+  <h1 style="font-size:18px;margin:0">Hunt Containers</h1>
+  <div id="capbanner"></div>
+
+  <h2>Proxy profiles</h2>
+  <div class="card">
+    <div class="grid3">
+      <input id="f-name" placeholder="Name (e.g. residential-eu)">
+      <select id="f-kind">
+        <option value="socks5">SOCKS5</option>
+        <option value="socks4">SOCKS4</option>
+        <option value="https">HTTPS (TLS to proxy)</option>
+        <option value="http">HTTP</option>
+        <option value="direct">Direct (no proxy)</option>
+      </select>
+      <input id="f-port" placeholder="Port" type="number">
+    </div>
+    <input id="f-host" placeholder="Host or IP">
+    <div class="grid2">
+      <input id="f-user" placeholder="Username (optional)">
+      <input id="f-pass" placeholder="Password (optional)" type="password">
+    </div>
+    <label class="row"><input type="checkbox" id="f-dns" checked style="width:auto">
+      <span class="hint">Resolve DNS through the proxy (SOCKS only — prevents your resolver leaking the target)</span></label>
+    <textarea id="f-headers" placeholder="Static headers, one per line: Name: value
+Program-mandated markers go here, e.g.  X-Bug-Bounty: mutemaster"></textarea>
+    <input id="f-note" placeholder="Notes (program, egress region, expiry…)">
+    <div class="row">
+      <button id="f-save" class="acc">Save profile</button>
+      <button id="f-reset" class="mini">Clear form</button>
+      <span id="f-editing" class="hint"></span>
+    </div>
+  </div>
+  <table><thead><tr><th>Name</th><th>Endpoint</th><th>Headers</th><th>Notes</th><th></th></tr></thead>
+  <tbody id="ptable"></tbody></table>
+
+  <h2>Containers → proxy</h2>
+  <div class="hint">Each container is a separate cookie jar. Bind one to a proxy and every tab opened in it inherits that egress.</div>
+  <table><thead><tr><th>Container</th><th>Proxy</th><th></th></tr></thead>
+  <tbody id="ctable"></tbody></table>
+  <div class="row" style="margin-top:8px">
+    <input id="c-new" placeholder="New container name" style="max-width:260px">
+    <button id="c-add" class="mini">Create container</button>
+  </div>
+
+  <h2>Presets</h2>
+  <div class="card">
+    <div class="grid2">
+      <input id="s-name" placeholder="Preset name (e.g. Poloniex — account A)">
+      <input id="s-container" placeholder="Container name">
+    </div>
+    <div class="grid2">
+      <input id="s-url" placeholder="Start URL (https://…)">
+      <select id="s-profile"></select>
+    </div>
+    <div class="row"><button id="s-save" class="acc">Save preset</button></div>
+  </div>
+  <table><thead><tr><th>Preset</th><th>Container</th><th>Proxy</th><th>URL</th><th></th></tr></thead>
+  <tbody id="stable"></tbody></table>
+
+  <h2>Settings</h2>
+  <div class="card">
+    <div class="lbl">IP echo endpoint (used by "test" and "check")</div>
+    <input id="ipurl">
+    <div class="row"><button id="saveset" class="mini">Save</button></div>
+  </div>
+
+  <h2>Backup</h2>
+  <div class="card">
+    <div class="hint">Config export includes proxy credentials in cleartext. Keep it off shared storage.</div>
+    <div class="row">
+      <button id="export" class="mini">Export config</button>
+      <button id="import" class="mini">Import config</button>
+      <input type="file" id="file" accept="application/json" hidden>
+    </div>
+  </div>
+</div>
+<script src="options.js"></script>

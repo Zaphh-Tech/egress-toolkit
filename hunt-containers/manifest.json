@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Hunt Containers",
+  "version": "1.0.0",
+  "description": "Per-container egress proxy, isolated cookie jars, and mandatory program marker headers for authorized bug bounty testing.",
+  "permissions": [
+    "proxy",
+    "contextualIdentities",
+    "cookies",
+    "storage",
+    "tabs",
+    "scripting",
+    "webRequest",
+    "webRequestBlocking",
+    "webRequestAuthProvider"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "scripts": ["background.js"],
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Hunt Containers"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "hunt-containers@mutemaster.local",
+      "strict_min_version": "115.0"
+    }
+  }
+}

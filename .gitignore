@@ -1,0 +1,20 @@
+# proxy lists contain live credentials — never commit
+proxies.txt
+*.proxies
+*.proxy
+
+# proxycheck output
+*.json
+!hunt-containers/manifest.json
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# editor / os
+.DS_Store
+*.swp
+.idea/
+.vscode/

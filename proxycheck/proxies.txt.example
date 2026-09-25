@@ -1,0 +1,10 @@
+# proxycheck proxy list — one per line, optional "# label" at the end.
+# Copy to proxies.txt (git-ignored) and fill with your own proxies.
+#
+# Prefer socks5h:// over socks5:// — the "h" makes the proxy resolve the
+# hostname, so your local resolver never sees the target. proxycheck flags
+# any entry using the leaky form.
+
+socks5h://user:pass@host.example:1080    # residential-eu
+https://user:pass@host.example:8443      # corp-jump
+socks5h://127.0.0.1:9050                  # tor

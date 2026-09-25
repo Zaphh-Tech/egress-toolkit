@@ -1,0 +1,48 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="ui.css">
+<title>Hunt Containers</title>
+<div class="wrap">
+  <header>
+    <b>Hunt Containers</b>
+    <span id="cap" class="pill"></span>
+  </header>
+
+  <section class="card">
+    <div class="lbl">Active tab</div>
+    <div id="tabtitle" class="mono ell">—</div>
+    <div class="row">
+      <span class="lbl">Container</span>
+      <span id="container" class="mono">—</span>
+    </div>
+    <div class="row">
+      <span class="lbl">Egress IP</span>
+      <span id="ip" class="mono">—</span>
+      <button id="ipbtn" class="mini">check</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="lbl">Route this tab through</div>
+    <select id="tabproxy"></select>
+    <div id="via" class="hint"></div>
+    <div class="row gap">
+      <button id="clearcookies" class="mini">clear container cookies</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="lbl">Proxies <span class="hint">(reachability + egress IP)</span></div>
+    <div id="plist" class="list"></div>
+  </section>
+
+  <section class="card">
+    <div class="lbl">Presets</div>
+    <div id="presets" class="list"></div>
+  </section>
+
+  <footer>
+    <button id="opts" class="mini">Settings &amp; profiles</button>
+  </footer>
+</div>
+<script src="popup.js"></script>
